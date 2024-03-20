@@ -26,5 +26,6 @@ def upload():
         return render_template('result.html', entradas=entradas, salidas=salidas, patrones=patrones)
     #Entradas [e1, e2, e3, e... e_n]
     #Salidas [s1, s2, s3, s... s_n]
+    
 if __name__ == '__main__':
     app.run(debug=True)

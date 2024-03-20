@@ -1,4 +1,5 @@
 import random
+from model_training import inicio_entrenamiento
 
 def procesar_datos(entradas, salidas):
     # Calcular cantidad de datos en las matrices de peso y umbrales. Patrones
@@ -11,14 +12,17 @@ def procesar_datos(entradas, salidas):
     # Se llena la matriz de umbrales con valores a  leatorios entre -1 y 1
     m_umbral = [round(random.randint(-10, 10) / 10, 1) for _ in range(cant_umbral)]
 
-    # Pasar el diccionario de entradas y salidas a indices de valores normales
-    entradas, salidas = obtener_entradas_salidas(entradas, salidas)
-
     # Obtener los Patrones
-    patrones = obtener_patrones(cant_patrones)
+    patrones = obtener_patrones(cant_patrones, entradas)
+
+    # Pasar el diccionario de entradas y salidas a indices de valores normales
+    entradas, salidas = establecer_entradas_salidas(entradas, salidas)
+
+    # Se inicia el entrenamiento
+    inicio_entrenamiento (m_umbral, m_pesos, patrones)
     return patrones, cant_patrones, cant_umbral, cant_peso
 
-def obtener_patrones(cant_patrones):
+def obtener_patrones(cant_patrones, entradas):
     patrones = []
     for i in range(cant_patrones):
         patron = []
@@ -27,20 +31,22 @@ def obtener_patrones(cant_patrones):
         patrones.append(patron)
     return patrones
 
-def obtener_entradas_salidas(dicc_entradas, dicc_salidas):
-    entradas = []
-    salidas = []
-    for i in range(len(dicc_entradas)):
-        entrada = []
-        for entrada_data in entradas.values():
-            entrada.append(entrada_data[i])
-        entradas.append(entrada)
-
-    for i in range(len(dicc_salidas)):
-        salida = []
-        for salida_data in salidas.values():
-            salida.append(salida_data[i])
-        salidas.append(salida)
+def establecer_entradas_salidas(dicc_entradas, dicc_salidas):
+    entradas = list(dicc_entradas.values())
+    salidas = list(dicc_salidas.values())
+#    entradas = []
+#    salidas = []
+#    for i in range(len(dicc_entradas)):
+#        entrada = []
+#        for entrada_data in dicc_entradas.values():
+#            entrada.append(entrada_data[i])
+#        entradas.append(entrada)
+#
+#    for i in range(len(dicc_salidas)):
+#        salida = []
+#        for salida_data in dicc_salidas.values():
+#            salida.append(salida_data[i])
+#        salidas.append(salida)
     return entradas, salidas
 
 def hola ():
