@@ -16,3 +16,12 @@ def procesar_archivo(file):
             return None, None, 'Error: El archivo JSON está mal formateado'
     else:
         return None, None, 'Error: El archivo debe tener extensión .json'
+    
+def combinar_data(entradas, salidas):
+    data = []
+
+    for key, value in entradas.items():
+        data.append({'Nombre':key, 'Valores': value})
+    for key, value in salidas.items():
+        data.append({'Nombre':key, 'Valores': value})
+    return data
