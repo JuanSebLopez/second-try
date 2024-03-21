@@ -19,7 +19,8 @@ def procesar_datos(entradas, salidas):
     entradas, salidas = establecer_entradas_salidas(entradas, salidas)
 
     # Se inicia el entrenamiento
-    inicio_entrenamiento (m_umbral, m_pesos, patrones)
+    # TODO: Se añade el num de iteraciones maximas manual. Revisar despues como se obtendra
+    inicio_entrenamiento (m_umbral, m_pesos, patrones, 100, 0.1)
     return patrones, cant_patrones, cant_umbral, cant_peso
 
 def obtener_patrones(cant_patrones, entradas):
@@ -34,19 +35,6 @@ def obtener_patrones(cant_patrones, entradas):
 def establecer_entradas_salidas(dicc_entradas, dicc_salidas):
     entradas = list(dicc_entradas.values())
     salidas = list(dicc_salidas.values())
-#    entradas = []
-#    salidas = []
-#    for i in range(len(dicc_entradas)):
-#        entrada = []
-#        for entrada_data in dicc_entradas.values():
-#            entrada.append(entrada_data[i])
-#        entradas.append(entrada)
-#
-#    for i in range(len(dicc_salidas)):
-#        salida = []
-#        for salida_data in dicc_salidas.values():
-#            salida.append(salida_data[i])
-#        salidas.append(salida)
     return entradas, salidas
 
 def hola ():
