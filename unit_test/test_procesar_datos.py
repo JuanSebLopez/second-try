@@ -1,5 +1,6 @@
 # Variable que almacena el diccionario de datos
 entradas = {'e1': [0, 1, 1, 0, 0, 0, 0, 0, 1, 1], 'e2': [0, 1, 1, 0, 1, 1, 0, 0, 0, 0], 'e3': [0, 1, 1, 0, 1, 1, 1, 1, 1, 1], 'e4': [0, 1, 0, 1, 0, 1, 0, 1, 0, 1]}
+patrones_Y = []
 
 # Lista para almacenar los patrones
 patrones = []
@@ -24,3 +25,4 @@ for i in range(num_elementos):
 print("Patrones:")
 for idx, patron in enumerate(patrones):
     print(f"indice {idx} de patrones: {patron}")
+

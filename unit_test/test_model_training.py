@@ -20,3 +20,21 @@ YR = np.where(S_atenuada >= 0, 1, 0)
 
 print("Salida atenuada:", S_atenuada)
 print("Salida de la función de activación (limitador duro):", YR)
+
+def calcular_error_lineal(Yd, YR):
+    # Calcular el error lineal para cada patrón
+    error_lineal = Yd - YR
+    
+    return error_lineal
+
+# Ejemplo de uso
+patrones_Y = [[0,0],[0,1],[1,0],[1,1]]
+num_patron = 2
+Yd = np.array(patrones_Y[num_patron])  # Salidas deseadas
+y_r = [1,1]
+YR = np.array(y_r) # Salidas calculadas por la red neuronal
+
+# Calcular el error lineal
+error_lineal = calcular_error_lineal(Yd, YR)
+
+print("Error lineal:", error_lineal)

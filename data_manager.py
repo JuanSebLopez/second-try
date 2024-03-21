@@ -13,24 +13,27 @@ def procesar_datos(entradas, salidas):
     m_umbral = [round(random.randint(-10, 10) / 10, 1) for _ in range(cant_umbral)]
 
     # Obtener los Patrones
-    patrones = obtener_patrones(cant_patrones, entradas)
+    patrones_X, patrones_Y = obtener_patrones(cant_patrones, entradas, salidas)
 
     # Pasar el diccionario de entradas y salidas a indices de valores normales
     entradas, salidas = establecer_entradas_salidas(entradas, salidas)
 
     # Se inicia el entrenamiento
     # TODO: Se añade el num de iteraciones maximas manual. Revisar despues como se obtendra
-    inicio_entrenamiento (m_umbral, m_pesos, patrones, 100, 0.1)
-    return patrones, cant_patrones, cant_umbral, cant_peso
+    inicio_entrenamiento (salidas, m_umbral, m_pesos, patrones_X, patrones_Y, 100, 0.1)
+    return patrones_X, cant_patrones, cant_umbral, cant_peso
 
-def obtener_patrones(cant_patrones, entradas):
-    patrones = []
+def obtener_patrones(cant_patrones, entradas, salidas):
+    patrones_X, patrones_Y = [], []
     for i in range(cant_patrones):
-        patron = []
+        patron_X, patron_Y = [], []
         for entrada in entradas.values():
-            patron.append(entrada[i])
-        patrones.append(patron)
-    return patrones
+            patron_X.append(entrada[i])
+        patrones_X.append(patron_X)
+        for salida in salidas.values():
+            patron_Y.append(salida[i])
+        patrones_Y.append(patron_Y)
+    return patrones_X, patrones_Y
 
 def establecer_entradas_salidas(dicc_entradas, dicc_salidas):
     entradas = list(dicc_entradas.values())
