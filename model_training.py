@@ -6,7 +6,8 @@ def inicio_entrenamiento(salidas, m_umbrales, m_pesos, patrones_X, patrones_Y, m
     error_iteracion = float('inf')  # Inicializamos el error de la iteracion a un valor infinito
     m_pesos_actual = m_pesos        # Se establece la matriz de peso 
     m_umbrales_actual = m_umbrales  # Se establece la matriz de umbrales 
-    error_patrones = [0] * len(patrones_X)  # Lista para almacenar errores por patrón   
+    error_patrones = [0] * len(patrones_X)  # Lista para almacenar errores por patrón  
+    error_iteracion_lista = [] 
 
     while (error_iteracion > error_maximo_permitido) and (num_iteraciones < max_iteraciones):   # Iteraciones entrenamiento
         num_patron, fA= 0, 0
@@ -22,9 +23,10 @@ def inicio_entrenamiento(salidas, m_umbrales, m_pesos, patrones_X, patrones_Y, m
             # Pasa al siguiente patron
             num_patron += 1
         # Se calcula el error de iteracion
-        error_iteracion 
+        error_iteracion = (np.sum(error_patrones)/len(error_patrones)) # Error de iteracion
+        error_iteracion_lista.append(error_iteracion)
         num_iteraciones += 1
-    return None
+    return error_iteracion_lista, m_pesos_actual, m_umbrales_actual
 
 def calculo_funciones (patron_actual_X, m_pesos_actual, m_umbrales_actual):
     X = np.array(patron_actual_X)
