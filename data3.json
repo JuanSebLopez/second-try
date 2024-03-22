@@ -7,5 +7,5 @@
       "YD1": [1, 0, 0, 0]
     },
     "matriz_peso": {},
-    "matriz_sesgo": {}
+    "matriz_umbrales": {}
 }

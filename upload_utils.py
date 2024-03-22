@@ -1,5 +1,6 @@
 import json
 import xml.etree.ElementTree as ET
+import graphviz
 
 def procesar_archivo(file):
     if file.filename.endswith('.json'):
@@ -25,3 +26,14 @@ def combinar_data(entradas, salidas):
     for key, value in salidas.items():
         data.append({'Nombre':key, 'Valores': value})
     return data
+
+#def visualizar_neurona(inputs, weights, threshold):
+#    dot = graphviz.Digraph()
+#    dot.node('Neurona', 'Neurona', shape='circle')
+#    for i, input_val in enumerate(inputs):
+#        dot.node(f'Entrada_{i}', f'Entrada_{i+1}', shape='oval')
+#        dot.edge(f'Entrada_{i}', 'Neurona', label=str(weights[i]))
+#    dot.node('Umbrales', f'Umbrales', shape='diamond')
+#    dot.edge('Umbrales', 'Neurona', label=str(threshold))
+#    dot.render('static/neurona', format='png', cleanup=True)  # Guarda la imagen en la carpeta 'static'
+#    return 'neurona.png'  # Devuelve el nombre del archivo

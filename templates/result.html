@@ -37,6 +37,17 @@
         </tr>
         {% endfor %}
     </table>
+    <br>
+    <!--
+        <h2>Modelo de la neurona</h2>
+        <img src="{{ url_for('static', filename='modelo_neurona.png') }}", alt="Modelo de la neurona">    
+    -->
+    <!-- Agregar el botón de descarga -->
+    <br>
+    <form action="/download" method="GET">
+        <button type="submit">Descargar JSON</button>
+    </form>
+
     <h2>Comparacion Salidas Esperadas (YD) VS Salidas Reales (YR)</h2>
     <h3>Salidas Deseadas</h3>
     <table style="border-collapse: collapse;">
@@ -69,6 +80,7 @@
     <h2>Resultados del entrenamiento</h2>
     <h2>Grafico de Error de Iteracion vs Numero de Iteracion</h2>
     <img src="data:image/png;base64, {{ error_iteracion_img }}" alt="Grafico de Error de Iteracion vs Numero de Iteraciones">
+    
 </body>
 <footer class="footer">
     Este es el footer

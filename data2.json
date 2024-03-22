@@ -9,5 +9,5 @@
       "M2": [0, 1, 0, 1]
     },
     "matriz_peso": {},
-    "matriz_sesgo": {}
+    "matriz_umbrales": {}
 }
