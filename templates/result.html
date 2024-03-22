@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
-    <title>Resultado</title>
+    <title>Resultados</title>
 </head>
 
 <body>
@@ -37,20 +37,38 @@
         </tr>
         {% endfor %}
     </table>
-    <!-- 
-    <table border="1">
-        <tr>
-            <th>Nombre</th>
-            <th>Valores</th>
+    <h2>Comparacion Salidas Esperadas (YD) VS Salidas Reales (YR)</h2>
+    <h3>Salidas Deseadas</h3>
+    <table style="border-collapse: collapse;">
+        <tr style="border: 1px solid black; background-color: #f2f2f2;">
+            <th style="border: 1px solid black; padding: 8px; text-align: center;">Indice</th>
+            <th style="border: 1px solid black; padding: 8px; text-align: center;">Valores</th>
         </tr>
-        {% for item in data %}
-        <tr>
-            <td>{{ item['Nombre'] }}</td>
-            <td>{{ item['Valores'] }}</td>
-        </tr>
+        {% for i in range(salidas_esperadas|length) %}
+            <tr style="border: 1px solid black; padding: 8px; text-align: center;">
+                <td style="border: 1px solid black; padding: 8px;">YD_{{ i + 1 }}</td>
+                <td style="border: 1px solid black; padding: 8px;">{{ salidas_esperadas[i] }}</td>
+            </tr>
         {% endfor %}
     </table>
-    -->
+
+    <h3>Salidas Reales</h3>
+    <table style="border-collapse: collapse;">
+        <tr style="border: 1px solid black; background-color: #f2f2f2;">
+            <th style="border: 1px solid black; padding: 8px; text-align: center;">Indice</th>
+            <th style="border: 1px solid black; padding: 8px; text-align: center;">Valores</th>
+        </tr>
+        {% for i in range(salidas_reales|length) %}
+            <tr style="border: 1px solid black; padding: 8px; text-align: center;">
+                <td style="border: 1px solid black; padding: 8px;">YR_{{ i + 1 }}</td>
+                <td style="border: 1px solid black; padding: 8px;">{{ salidas_reales[i] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Resultados del entrenamiento</h2>
+    <h2>Grafico de Error de Iteracion vs Numero de Iteracion</h2>
+    <img src="data:image/png;base64, {{ error_iteracion_img }}" alt="Grafico de Error de Iteracion vs Numero de Iteraciones">
 </body>
 <footer class="footer">
     Este es el footer

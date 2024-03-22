@@ -1,0 +1,11 @@
+{
+    "entradas": {
+      "X1": [1, 0, 1, 0],
+      "X2": [1, 1, 0, 0]
+    },
+    "salidas": {
+      "YD1": [1, 0, 0, 0]
+    },
+    "matriz_peso": {},
+    "matriz_sesgo": {}
+}
