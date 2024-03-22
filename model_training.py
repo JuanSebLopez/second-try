@@ -26,7 +26,8 @@ def inicio_entrenamiento(salidas, m_umbrales, m_pesos, patrones_X, patrones_Y, m
         error_iteracion = (np.sum(error_patrones)/len(error_patrones)) # Error de iteracion
         error_iteracion_lista.append(error_iteracion)
         num_iteraciones += 1
-    return error_iteracion_lista, m_pesos_actual, m_umbrales_actual
+        print(f"ITERACION NUMERO: {num_iteraciones}")
+    return error_iteracion_lista, m_pesos_actual, m_umbrales_actual     
 
 def calculo_funciones (patron_actual_X, m_pesos_actual, m_umbrales_actual):
     X = np.array(patron_actual_X)
@@ -55,6 +56,12 @@ def calculo_pesos_umbrales (m_pesos, m_umbrales, RA,  error_lineal, patron_X):
     u = np.array(m_umbrales)
     X = np.array(patron_X)
     EL = np.array(error_lineal)
-    m_peso_nuevo = (W + RA * EL[:, np.newaxis] * X).tolist()
-    m_umbral_nuevo = (u + RA * 1).tolist()
+
+    EL = EL[:, np.newaxis]
+    X = X[np.newaxis, :]
+
+    m_peso_nuevo = (W + RA * EL * X)
+    m_umbral_nuevo = (u + RA * 1)
+
+    m_peso_nuevo = m_peso_nuevo.squeeze()
     return m_peso_nuevo, m_umbral_nuevo

@@ -7,7 +7,7 @@ def procesar_datos(entradas, salidas):
     entradas, salidas = establecer_entradas_salidas(entradas, salidas)
 
     # TODO: Se añade el num de iteraciones maximas manual. Revisar despues como se obtendra
-    error_iteracion, m_peso_nuevo, m_umbral_nuevo = inicio_entrenamiento (salidas, m_umbral, m_pesos, patrones_X, patrones_Y, 100, 0.1)
+    error_iteracion, m_peso_nuevo, m_umbral_nuevo = inicio_entrenamiento (salidas, m_umbral, m_pesos, patrones_X, patrones_Y, 5000, 0.1)
     return error_iteracion, m_peso_nuevo, m_umbral_nuevo
 
 def definir_parametros_entrada (entradas, salidas):
